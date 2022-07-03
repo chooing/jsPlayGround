@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let Xpos =0; 
+        ctx.fillRect(Xpos,0,10,10);
+
+        // requestAnimationFrame
+        function play(){
+            ctx.clearRect(0,0,600,600)
+            ctx.fillRect(Xpos,0,10,10);
+            Xpos+= 2;
+            if(Xpos > 600){
+                Xpos =0
+            }
+            window.requestAnimationFrame(play);
+        }
+        window.requestAnimationFrame(play);
+
+
+    </script>
+
+</body>
+</html>
